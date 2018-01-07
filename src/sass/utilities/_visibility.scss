@@ -1,0 +1,27 @@
+.hide {
+  display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+@media (max-width: map-get($breakpoints, md)) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: map-get($breakpoints, md)) and (max-width: map-get($breakpoints, lg)) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: map-get($breakpoints, lg)) {
+  .hidden-lg {
+    display: none !important;
+  }
+}

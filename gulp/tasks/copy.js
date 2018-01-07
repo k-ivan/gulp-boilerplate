@@ -28,7 +28,8 @@ gulp.task('copy', [
 ]);
 
 gulp.task('copy:watch', function () {
-  gulp.watch(`${config.src.root}/**/*`, ['copy']);
+  // gulp.watch(`${config.src.root}/**/*`, ['copy']);
+  gulp.watch([`${config.src.root}/**/*`, `!${config.src.sass}/**/*`, `!${config.src.js}/**/*`, `!${config.src.html}/**/*`], ['copy']);
   // not working
   // gulp.watch([`${config.src.img}/**/*`, `${config.src.fonts}/**/*`], ['copy']);
 });

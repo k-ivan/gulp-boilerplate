@@ -1,0 +1,52 @@
+.container {
+  max-width: $container-max-width;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $grid-gutter-width / 2;
+  padding-left: $grid-gutter-width / 2;
+}
+@if $enable-flex-grid {
+
+  .row {
+    margin-right: - $grid-gutter-width / 2;
+    margin-left: - $grid-gutter-width / 2;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  $column-name: '.col';
+
+  %column {
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+    padding: $grid-gutter-width / 2;
+    flex-shrink: 1;
+  }
+
+  @each $postfix in map-keys($breakpoints) {
+
+    @for $i from 1 through $grid-columns {
+      #{$column-name}-#{$postfix}-#{$i} {
+        @extend %column;
+      }
+    }
+
+    @include breakpoint($postfix)  {
+
+      @for $i from 1 through $grid-columns {
+        #{$column-name}-#{$postfix}-#{$i} {
+          width: percentage($i / $grid-columns);
+        }
+      }
+
+      @for $i from 1 through $grid-columns {
+        .offset-#{$postfix}-#{$i} {
+          margin-left: percentage($i / $grid-columns);
+        }
+      }
+    }
+  }
+
+}

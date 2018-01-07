@@ -1,0 +1,5 @@
+@mixin text-truncate($truncate: ellipsis) {
+  overflow: hidden;
+  text-overflow: $truncate;
+  white-space: nowrap;
+}
