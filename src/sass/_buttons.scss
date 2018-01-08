@@ -1,0 +1,111 @@
+// Buttons
+$btn-border: 1px solid $color-primary !default;
+$btn-height: 2.37rem;
+$btn-bg: transparent !default;
+$btn-color: $color-primary !default;
+$btn-hover-bg: $color-primary !default;
+$btn-hover-color: #fff !default;
+$btn-primary-bg: $color-primary !default;
+$btn-primary-color: #fff !default;
+$btn-padding: .5rem 1.2rem !default;
+$btn-lg: 1rem 2.4rem !default;
+$btn-radius: .2rem !default;
+
+.btn {
+  display: inline-block;
+  height: $btn-height;
+  line-height: 1;
+  vertical-align: middle;
+  padding: $btn-padding;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  letter-spacing: .05rem;
+  text-decoration: none;
+  text-align: center;
+  color: $btn-color;
+  background-color: $btn-bg;
+  border: $btn-border;
+  border-radius: $btn-radius;
+  user-select: none;
+  // outline: 0;
+  &:hover {
+    background-color: $btn-hover-bg;
+    color: $btn-hover-color;
+  }
+  &:active {
+    background-color: darken($btn-primary-bg, 10%);
+    color: $btn-hover-color;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.btn--clear {
+  background-color: transparent;
+  border: transparent;
+  color: $btn-color;
+  &:hover {
+    background-color: transparent;
+    color: darken($btn-color, 10%);
+  }
+  &:active {
+    background-color: transparent;
+    color: darken($btn-color, 10%);
+  }
+}
+
+.btn-group {
+  display: inline-flex;
+  flex-direction: row;
+
+  .btn {
+    border-radius: 0;
+    &:first-child {
+      border-top-left-radius: $btn-radius;
+      border-bottom-left-radius: $btn-radius;
+    }
+    &:last-child {
+      border-top-right-radius: $btn-radius;
+      border-bottom-right-radius: $btn-radius;
+    }
+    + .btn {
+      border-left: 1px solid darken($color-primary, 5%);
+      margin-left: -1px;
+    }
+  }
+}
+
+.btn[disabled],
+.btn--disabled {
+  cursor: not-allowed;
+  opacity: .7;
+  &:hover {
+    background-color: transparent;
+    color: $color-primary;
+  }
+}
+
+.btn--primary.btn[disabled],
+.btn--primary.btn--disabled {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $color-primary;
+    color: #fff;
+  }
+}
+
+.btn--lg {
+  height: auto;
+  padding: $btn-lg;
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+}
