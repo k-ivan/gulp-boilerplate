@@ -15,8 +15,7 @@ gulp.task('sass', function () {
       outputStyle: config.production ? 'compressed' : 'expanded', // nested, expanded, compact, compressed
       precision: 5
     }).on('error', sass.logError))
-    .pipe(autoprefixer({ browsers: ['last 3 versions'] }))
-    // .pipe(sourcemaps.write('./'))
+    .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
     .pipe(_if(!config.production, sourcemaps.write('./')))
     .pipe(gulp.dest(config.dest.css));
 });

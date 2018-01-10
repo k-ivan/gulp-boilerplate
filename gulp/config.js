@@ -2,6 +2,7 @@ const util = require('gulp-util');
 
 let production = util.env.production || util.env.prod || false;
 
+const srcPath  = 'src';
 const destPath = 'dist';
 
 const config = {
@@ -10,14 +11,14 @@ const config = {
   production: production,
 
   src: {
-    root    : 'src',
-    sass    : 'src/sass',
-    js      : 'src/js',
-    img     : 'src/img',
-    iconsSvg: 'src/icons',
-    fonts   : 'src/fonts',
-    html    : 'src/templates',
-    vendor  : 'src/vendor'
+    root    : `${srcPath}`,
+    sass    : `${srcPath}/sass`,
+    js      : `${srcPath}/js`,
+    img     : `${srcPath}/img`,
+    iconsSvg: `${srcPath}/icons`,
+    fonts   : `${srcPath}/fonts`,
+    html    : `${srcPath}/templates`,
+    vendor  : `${srcPath}/vendor`
   },
   dest: {
     root  : destPath,
