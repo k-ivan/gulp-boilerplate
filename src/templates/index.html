@@ -1,21 +1,27 @@
-@@include('components/header.html')
-  <div class="container">
-    <svg width="132" height="150">
-      <defs>
-        <linearGradient id="grad" x1="0" y1="50%" x2="100%" y2="50%" gradientUnits="userSpaceOnUse" gradientTransform="rotate(45, 50, 50)">
-          <stop class="colors" offset="0%" stop-color="rgba(255, 0, 0, 0.3)" />
-          <stop class="colors" offset="100%" stop-color="rgba(0, 0, 255, 0.3)" />
-        </linearGradient>
-        <symbol id="html5" width="132" height="150" viewBox="0 0 28 32">
-          <path fill="white" d="M0 0h28l-2.546 28.75-11.486 3.25-11.42-3.25-2.548-28.75zM9.374 13l-0.31-3.624 13.412 0.004 0.308-3.496-17.568-0.004 0.93 10.68h12.168l-0.434 4.568-3.88 1.072-3.94-1.080-0.25-2.812h-3.48l0.44 5.56 7.23 1.932 7.172-1.924 0.992-10.876h-12.79z"></path>
-        </symbol>
-        <mask id="brand">
-          <use xlink:href="#html5"/>
-        </mask>
-      </defs>
-      <rect width="132" fill="url(#grad)" height="150" mask="url(#brand)"></rect>
-      <!-- <use xlink:href="img/symbol.svg#brand"></use> -->
-    </svg>
-    <h1>Let's start coding )</h1>
-  </div>
-@@include('components/footer.html')
+<!-- @@include('components/header.html') if gulp-file-include -->
+<!-- @@include('components/footer.html') -->
+
+{% extends 'layouts/layout.html' %}
+
+{% block content %}
+<div class="container">
+  <svg width="132" height="150">
+    <defs>
+      <linearGradient id="grad" x1="0" y1="50%" x2="100%" y2="50%" gradientUnits="userSpaceOnUse" gradientTransform="rotate(45, 50, 50)">
+        <stop class="colors" offset="0%" stop-color="rgba(255, 0, 0, 0.3)" />
+        <stop class="colors" offset="100%" stop-color="rgba(0, 0, 255, 0.3)" />
+      </linearGradient>
+      <symbol id="html5" width="132" height="150" viewBox="0 0 28 32">
+        <path fill="white" d="M0 0h28l-2.546 28.75-11.486 3.25-11.42-3.25-2.548-28.75zM9.374 13l-0.31-3.624 13.412 0.004 0.308-3.496-17.568-0.004 0.93 10.68h12.168l-0.434 4.568-3.88 1.072-3.94-1.080-0.25-2.812h-3.48l0.44 5.56 7.23 1.932 7.172-1.924 0.992-10.876h-12.79z"></path>
+      </symbol>
+      <mask id="brand">
+        <use xlink:href="#html5"/>
+      </mask>
+    </defs>
+    <rect width="132" fill="url(#grad)" height="150" mask="url(#brand)"></rect>
+    <!-- <use xlink:href="img/symbol.svg#brand"></use> -->
+  </svg>
+  <h1>Let's start coding )</h1>
+</div>
+{% endblock %}
+

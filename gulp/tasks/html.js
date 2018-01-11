@@ -1,13 +1,19 @@
-const gulp = require('gulp');
-const include = require('gulp-file-include');
+const gulp     = require('gulp');
+
+// const include  = require('gulp-file-include');
+const nunjucks = require('gulp-nunjucks-render');
+
 const prettify = require('gulp-prettify');
-const plumber = require('gulp-plumber');
-const config = require('../config');
+const plumber  = require('gulp-plumber');
+const config   = require('../config');
 
 gulp.task('html', () => {
   return gulp.src(`${config.src.html}/*.html`)
     .pipe(plumber())
-    .pipe(include())
+    // .pipe(include())
+    .pipe(nunjucks({
+      path: config.src.html
+    }))
     .pipe(prettify({
       indent_size: 2,
       wrap_attributes: 'auto', // 'force'
