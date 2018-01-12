@@ -6,6 +6,7 @@ const del    = require('del');
 gulp.task('clean', function () {
   return del([config.dest.root])
     .then(function (paths) {
-      if (paths.length) console.log(`${paths} - cleared`);
+      if (paths.length)
+        util.log(util.colors.green(`${paths} - cleared`));
     });
 });

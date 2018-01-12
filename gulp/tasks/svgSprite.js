@@ -28,13 +28,14 @@ gulp.task('sprite:svg', function () {
         { collapseGroups: true },
         {
           removeAttrs: {
-            attrs: ['(fill|stroke|class|xmlns|style|data([a-z\-])+)', 'svg:(width|height)']
+            // attrs: ['(class|xmlns|style|data([a-z\-])+)', 'svg:(width|height)']
+            attrs: ['(class|xmlns|style|data([a-z\-])+)']
           }
         }
       ]
     }))
     .pipe(rename(function (path) {
-      path.basename = path.basename.toLowerCase();
+      path.basename = path.basename.toLowerCase().replace(/(\s|_)+/g, '-');
       return path;
     }))
     .pipe(svgSprite({

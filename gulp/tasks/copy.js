@@ -1,5 +1,5 @@
 const gulp   = require('gulp');
-const newer = require('gulp-newer');
+const newer  = require('gulp-newer');
 const config = require('../config.js');
 
 gulp.task('copy:fonts', function () {
@@ -28,8 +28,9 @@ gulp.task('copy', [
 ]);
 
 gulp.task('copy:watch', function () {
-  // gulp.watch(`${config.src.root}/**/*`, ['copy']);
   gulp.watch([`${config.src.root}/**/*`, `!${config.src.sass}/**/*`, `!${config.src.js}/**/*`, `!${config.src.html}/**/*`], ['copy']);
-  // not working
   // gulp.watch([`${config.src.img}/**/*`, `${config.src.fonts}/**/*`], ['copy']);
+  // gulp.watch(`${config.src.img}/**/*`, ['copy:img']);
+  // gulp.watch(`${ config.src.fonts }/**/ *`, ['copy:fonts']);
+  // gulp.watch(`${ config.src.vendor }/**/ *`, ['copy:vendor']);
 });

@@ -1,8 +1,6 @@
 const gulp     = require('gulp');
-
 // const include  = require('gulp-file-include');
 const nunjucks = require('gulp-nunjucks-render');
-
 const prettify = require('gulp-prettify');
 const plumber  = require('gulp-plumber');
 const config   = require('../config');
@@ -26,5 +24,4 @@ gulp.task('html', () => {
 
 gulp.task('html:watch', () => {
   gulp.watch(`${config.src.html}/**/*.html`, ['html']);
-  // gulp.watch(`${config.src.html}/*.html`, ['html']);
 });
