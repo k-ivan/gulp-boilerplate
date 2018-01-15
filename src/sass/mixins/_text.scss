@@ -3,3 +3,9 @@
   text-overflow: $truncate;
   white-space: nowrap;
 }
+
+@mixin hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
