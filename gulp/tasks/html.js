@@ -10,7 +10,7 @@ gulp.task('html', () => {
     .pipe(plumber())
     // .pipe(include())
     .pipe(nunjucks({
-      path: config.src.html
+      path: [config.src.html, config.dest.html]
     }))
     .pipe(prettify({
       indent_size: 2,
