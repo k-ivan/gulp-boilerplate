@@ -41,11 +41,6 @@
         }
       }
 
-      @for $i from 1 through $grid-columns {
-        .offset-#{$postfix}-#{$i} {
-          margin-left: percentage($i / $grid-columns);
-        }
-      }
     }
   }
 
