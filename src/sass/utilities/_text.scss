@@ -9,3 +9,4 @@
 .text-capitalize { text-transform: capitalize; }
 
 .text-muted { color: $text-muted; }
+.text-hide { @include hide-text; }
