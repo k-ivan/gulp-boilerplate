@@ -18,7 +18,7 @@ gulp.task('sass', function () {
       precision: 5
     }).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
-    .pipe(gcmq())
+    .pipe(_if(config.production, gcmq()))
     .pipe(_if(config.production, csso()))
     .pipe(_if(!config.production, sourcemaps.write('./')))
     .pipe(gulp.dest(config.dest.css));
