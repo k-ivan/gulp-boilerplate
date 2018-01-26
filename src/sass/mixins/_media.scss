@@ -27,3 +27,9 @@
     @content;
   }
 }
+
+@mixin minmax($min, $max) {
+  @media (min-width: #{$min}px) and (max-width: #{$max}px) {
+    @content;
+  }
+}
