@@ -18,7 +18,11 @@
     border: 0;
   }
 
-  &--widescreen {
+  &--16-9 {
     padding-bottom: percentage(9 / 16);
+  }
+
+  &--18-9 {
+    padding-bottom: percentage(9 / 18);
   }
 }
