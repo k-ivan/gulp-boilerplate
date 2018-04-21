@@ -1,47 +1,62 @@
 // Forms
-$form-field-height: 2.37rem !default;
-$form-base-radius: .1rem !default;
+$input-height: 2.37rem !default;
+$input-radius: .15rem !default;
 
 $input-padding: .5rem .8rem !default;
-$input-border: 1px solid #bfbfbf !default;
-$input-focus-border: $color-primary !default;
-$input-radius: $form-base-radius !default;
+$input-border-width: 1px !default;
+$input-border-color: #bfbfbf !default;
+$input-radius: .15rem !default;
+$input-shadow-focus: 0 0 7px 1px rgba($color-primary, .3);
 
-.form-input::placeholder {
-  color: #999;
+$form-field-margin: 1rem;
+
+.form-control {
+  position: relative;
 }
-.form-input:focus::placeholder {
-  color: lighten(#999, 5%);
+
+.form-addon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: $input-height;
+  padding: $input-padding;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-radius;
+  background-color: #f1f1f1;
+  z-index: -1;
 }
-.form-input,
-select {
+
+.form-input {
+  position: relative;
   display: block;
   width: 100%;
-  line-height: 1;
-  height: $form-field-height;
+  height: $input-height;
   padding: $input-padding;
-  margin-bottom: 1rem;
-
-  font-family: inherit;
   font-size: inherit;
-
-  border: $input-border;
+  font-family: inherit;
+  border: $input-border-width solid $input-border-color;
   border-radius: $input-radius;
   transition: box-shadow .3s ease;
   outline: 0;
-  &:focus {
-    border-color: $input-focus-border;
-    box-shadow: 0 0 7px rgba($color-primary, .3);
+  appearance: none;
+
+  &:hover {
+
   }
-  &:disabled {
-    cursor: not-allowed;
-    opacity: .7;
-    background-color: rgb(235, 235, 228);
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: $input-shadow-focus;
+  }
+  &::placeholder {
+    color: #999;
+  }
+  &:focus::placeholder {
+    color: lighten(#999, 10%);
   }
 }
 
-select {
-  appearance: none;
+.form-select {
+  @extend .form-input;
   background-color: #fff;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNOS4zMTMgMTMuMzEzaDEzLjM3NUwxNiAyMHoiLz48L3N2Zz4=);
   background-repeat: no-repeat;
@@ -53,53 +68,76 @@ select {
   }
 }
 
-.form-input-btn > .btn {
-  white-space: nowrap;
+.form-textarea {
+  @extend .form-input;
+  min-height: 4rem;
+  resize: vertical;
 }
 
-.form-input-btn {
-  height: $form-field-height;
-}
-.form-input-btn:not(:last-child) > .btn {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-right: -1px;
-}
-.form-input-btn:not(:first-child) > .btn {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-input-btn:not(:first-child):not(:last-child) > .btn {
-  border-radius: 0;
-  border-left: 0;
+input[disabled],
+textarea[disabled],
+select[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: row;
+.form-field {
+  margin-bottom: $form-field-margin;
 
-  .form-input,
-  .form-input-btn {
-    flex-shrink: 1;
+  &.has-addons {
+    display: flex;
+  }
+  &.has-addons .form-control:not(:last-child) {
+    margin-right: -$input-border-width;
   }
 
-  width: 100%;
-  margin-bottom: 1rem;
+  &.has-addons .form-control.is-expanded {
+    flex-grow: 1;
+  }
 
-  .form-input {
-    width: 100%;
-    margin-bottom: 0;
-    z-index: 2;
-    &:not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    &:not(:last-child) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    &:not(:first-child):not(:last-child) {
-      border-radius: 0;
-    }
+  &.has-addons .form-control:first-child .form-input,
+  &.has-addons .form-control:first-child .form-select,
+  &.has-addons .form-control:first-child .form-textarea,
+  &.has-addons .form-control:first-child .form-addon,
+  &.has-addons .form-control:first-child .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.has-addons .form-control:not(:last-child):not(:first-child) .form-input,
+  &.has-addons .form-control:not(:last-child):not(:first-child) .form-select,
+  &.has-addons .form-control:not(:last-child):not(:first-child) .form-textarea,
+  &.has-addons .form-control:not(:last-child):not(:first-child) .form-addon,
+  &.has-addons .form-control:not(:last-child):not(:first-child) .btn {
+    border-radius: 0;
+  }
+
+  &.has-addons .form-control:last-child .form-input,
+  &.has-addons .form-control:last-child .form-select,
+  &.has-addons .form-control:last-child .form-textarea,
+  &.has-addons .form-control:last-child .form-addon,
+  &.has-addons .form-control:last-child .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+
+  &.has-addons .form-input:focus,
+  &.has-addons .form-select:focus,
+  &.has-addons .btn:focus {
+    z-index: 3;
+  }
+
+  &.is-grouped {
+    display: flex;
+  }
+
+  &.is-grouped .form-control.is-expanded {
+    flex: 1 1 auto;
+  }
+
+  &.is-grouped .form-control:not(:last-child) {
+    margin-right: .7rem;
   }
 }
+

@@ -1,3 +1,8 @@
+$loading-size: 1.25rem !default;
+$loading-size-sm: 1rem !default;
+$loading-size-lg: 2rem !default;
+$loading-color: $color-primary !default;
+
 .loading {
   position: relative;
   color: transparent;
@@ -8,21 +13,25 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 12px;
-    width: 2em;
-    height: 2em;
-    margin-top: -1em;
-    margin-left: -1em;
+    font-size: $loading-size;
+    width: 1em;
+    height: 1em;
+    margin-top: -.5em;
+    margin-left: -.5em;
     border-radius: 50%;
-    background-color: transparent;
-    box-sizing: border-box;
-    border: .15rem solid rgba(0,0,0,.1);
-  }
-  &::after {
-    border: .15rem solid $color-primary;
+    border: .15rem solid $loading-color;
     border-left-color: transparent;
-    // border-bottom-color: transparent;
-    animation: loading .7s linear infinite;
+    box-sizing: border-box;
+    background-color: transparent;
+    animation: loading .55s linear infinite;
+  }
+
+  &--sm::after {
+    font-size: $loading-size-sm;
+  }
+
+  &--lg::after {
+    font-size: $loading-size-lg;
   }
 }
 

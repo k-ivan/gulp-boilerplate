@@ -1,0 +1,7 @@
+.divider {
+  @include divider;
+}
+
+.divider-vert {
+  @include divider('vertical');
+}

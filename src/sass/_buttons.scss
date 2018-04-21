@@ -1,6 +1,6 @@
 // Buttons
 $btn-border: 1px solid $color-primary !default;
-$btn-height: 2.37rem;
+$btn-height: 2.37rem !default;
 $btn-bg: transparent !default;
 $btn-color: $color-primary !default;
 $btn-hover-bg: $color-primary !default;
@@ -8,8 +8,14 @@ $btn-hover-color: #fff !default;
 $btn-primary-bg: $color-primary !default;
 $btn-primary-color: #fff !default;
 $btn-padding: .5rem 1.2rem !default;
-$btn-lg: 1rem 2.4rem !default;
-$btn-radius: .2rem !default;
+$btn-radius: .15rem !default;
+
+@mixin btn-loading-color($border-color: $color-primary) {
+  &::after {
+    border-color: $border-color;
+    border-left-color: transparent;
+  }
+}
 
 .btn {
   display: inline-block;
@@ -31,21 +37,27 @@ $btn-radius: .2rem !default;
   user-select: none;
   // outline: 0;
   &:hover {
-    background-color: $btn-hover-bg;
     color: $btn-hover-color;
+    background-color: $btn-hover-bg;
   }
   &:active {
-    background-color: darken($btn-primary-bg, 10%);
     color: $btn-hover-color;
+    background-color: darken($btn-primary-bg, 10%);
   }
   &:hover,
   &:focus,
   &:active {
     text-decoration: none;
   }
+
+  &.is-loading {
+    @extend .loading;
+    @include btn-loading-color;
+    pointer-events: none;
+  }
 }
 
-.btn--clear {
+.btn--link {
   background-color: transparent;
   border: transparent;
   color: $btn-color;
@@ -58,6 +70,30 @@ $btn-radius: .2rem !default;
     color: darken($btn-color, 10%);
   }
 }
+
+
+// .btn.btn--loading,
+// .btn--clear.btn--loading {
+//   color: transparent;
+//   &:hover,
+//   &:active {
+//     background-color: transparent;
+//   }
+// }
+// .btn--primary.btn--loading {
+//   color: transparent;
+//   &:hover,
+//   &:active {
+//     background-color: $color-primary;
+//   }
+//   @include btn-loading-color(#fff);
+// }
+
+// @keyframes btn-loading {
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
 
 .btn-group {
   display: inline-flex;
@@ -98,11 +134,6 @@ $btn-radius: .2rem !default;
     background-color: $color-primary;
     color: #fff;
   }
-}
-
-.btn--lg {
-  height: auto;
-  padding: $btn-lg;
 }
 
 .btn--block {
