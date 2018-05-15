@@ -5,16 +5,16 @@ const config = require('./gulp/config');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function createConfig(env) {
-  let isProduction,
-    webpackConfig;
+  // let isProduction,
+  let webpackConfig;
 
   if (env === undefined) {
     env = process.env.NODE_ENV;
   }
 
-  isProduction = env === 'production';
 
   webpackConfig = {
+    mode: env,
     context: path.join(__dirname, config.src.js),
     entry: {
       // vendor: ['jquery'],
@@ -25,7 +25,7 @@ function createConfig(env) {
       filename: '[name].js',
       publicPath: 'js/',
     },
-    devtool: isProduction ?
+    devtool: env === 'production' ?
       '#source-map' :
       '#cheap-module-eval-source-map',
     plugins: [
@@ -46,7 +46,7 @@ function createConfig(env) {
       //   jQuery: 'jquery',
       //   'window.jQuery': 'jquery',
       // }),
-      new webpack.NoEmitOnErrorsPlugin(),
+      // new webpack.NoEmitOnErrorsPlugin(),
 
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -81,18 +81,18 @@ function createConfig(env) {
     },
   };
 
-  if (isProduction) {
-    webpackConfig.plugins.push(
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-        },
-      })
-    );
-  }
+  // if (isProduction) {
+  //   webpackConfig.plugins.push(
+  //     new webpack.LoaderOptionsPlugin({
+  //       minimize: true,
+  //     }),
+  //     new webpack.optimize.UglifyJsPlugin({
+  //       compress: {
+  //         warnings: false,
+  //       },
+  //     })
+  //   );
+  // }
 
   return webpackConfig;
 }

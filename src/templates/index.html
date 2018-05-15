@@ -15,7 +15,6 @@
   h1 {
     text-align: center;
     line-height: 2;
-    @include text-truncate;
     font-weight: 300;
     color: #999;
   }
@@ -27,13 +26,12 @@
 
   svg {
     margin: auto;
-    // fill: #e34f26;
   }
   stop {
     animation: colors 5s linear infinite backwards;
-    &:nth-child(2) {
-      animation-delay: .5s;
-    }
+  }
+  stop:nth-child(2) {
+    animation-delay: .5s;
   }
   @keyframes colors {
     0% {
@@ -70,6 +68,6 @@
     <rect width="132" fill="url(#grad)" height="150" mask="url(#brand)"></rect>
     <!-- <use xlink:href="img/symbol.svg#brand"></use> -->
   </svg>
-  <h1>Let's start coding )</h1>
+  <h1 class="text-truncate">Let's start coding )</h1>
 </div>
 {% endblock %}

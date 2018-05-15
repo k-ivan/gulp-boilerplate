@@ -17,7 +17,7 @@
       width: $weight;
       top: 1rem;
       left: 50%;
-      margin-left: calc($weight / -2);
+      margin-left: calc(#{$weight} / -2);
       bottom: 1rem;
       background-color: $border-color;
     }
