@@ -5,7 +5,6 @@ const config = require('./gulp/config');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function createConfig(env) {
-  // let isProduction,
   let webpackConfig;
 
   if (env === undefined) {
@@ -17,6 +16,7 @@ function createConfig(env) {
     mode: env,
     context: path.join(__dirname, config.src.js),
     entry: {
+      // TODO: if needed
       // vendor: ['jquery'],
       app: './app.js',
     },
@@ -29,25 +29,12 @@ function createConfig(env) {
       '#source-map' :
       '#cheap-module-eval-source-map',
     plugins: [
-      // new webpack.optimize.CommonsChunkPlugin({
-      //     name: 'vendor',
-      //     filename: '[name].js',
-      //     minChunks: Infinity
-      // }),
-      // new webpack.LoaderOptionsPlugin({
-      //   options: {
-      //     eslint: {
-      //       formatter: require('eslint-formatter-pretty')
-      //     }
-      //   }
-      // }),
+      // TODO: if needed
       // new webpack.ProvidePlugin({
       //   $: 'jquery',
       //   jQuery: 'jquery',
       //   'window.jQuery': 'jquery',
       // }),
-      // new webpack.NoEmitOnErrorsPlugin(),
-
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         analyzerPort: 4000,
@@ -60,18 +47,6 @@ function createConfig(env) {
     module: {
       rules: [
         {
-          // enforce: 'pre',
-          // test: /\.js$/,
-          // exclude: [
-          //   path.resolve(__dirname, 'node_modules'),
-          // ],
-          // loader: 'eslint-loader',
-          // options: {
-          //   fix: true,
-          //   cache: true,
-          //   ignorePattern: __dirname + '/src/js/lib/'
-          // }
-        }, {
           test: /\.js$/,
           loader: 'babel-loader',
           exclude: [

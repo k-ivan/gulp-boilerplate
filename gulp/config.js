@@ -12,7 +12,7 @@ const config = {
 
   src: {
     root    : `${srcPath}`,
-    sass    : `${srcPath}/sass`,
+    sass    : `${srcPath}/scss`,
     js      : `${srcPath}/js`,
     img     : `${srcPath}/img`,
     iconsSvg: `${srcPath}/icons`,
