@@ -1,5 +1,5 @@
-import SayHello from './sayhello';
 import svg4everybody from 'svg4everybody';
+import SayHello from './sayhello';
 
 svg4everybody();
 
