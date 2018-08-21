@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "imagemin": "gulp imagemin"
+    "imagemin": "gulp imagemin",
+    "tunnel": "gulp server --tunnel"
   },
   "keywords": [],
   "author": "",

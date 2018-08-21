@@ -28,8 +28,8 @@ gulp.task('server', function () {
     open: Boolean(util.env.open),
     notify: true,
     ghostMode: false,
-    // online: Boolean(util.env.tunnel),
-    // tunnel: util.env.tunnel || null
+    online: Boolean(util.env.tunnel),
+    tunnel: util.env.tunnel || null
   });
 });
 
