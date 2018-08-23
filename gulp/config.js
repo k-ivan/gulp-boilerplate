@@ -17,8 +17,7 @@ const config = {
     img     : `${srcPath}/img`,
     iconsSvg: `${srcPath}/icons`,
     fonts   : `${srcPath}/fonts`,
-    html    : `${srcPath}/templates`,
-    vendor  : `${srcPath}/vendor`
+    html    : `${srcPath}/templates`
   },
   dest: {
     root  : destPath,
@@ -27,8 +26,7 @@ const config = {
     js    : `${destPath}/js`,
     img   : `${destPath}/img`,
     icons : `${destPath}/img`,
-    fonts : `${destPath}/fonts`,
-    vendor: `${destPath}/vendor`,
+    fonts : `${destPath}/fonts`
   },
 
   setEnv (env) {

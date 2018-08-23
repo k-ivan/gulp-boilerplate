@@ -9,12 +9,6 @@ gulp.task('copy:fonts', function () {
     .pipe(gulp.dest(config.dest.fonts));
 });
 
-gulp.task('copy:vendor', function () {
-  return gulp.src(`${config.src.vendor}/**/*`)
-    .pipe(newer(config.dest.vendor))
-    .pipe(gulp.dest(config.dest.vendor));
-});
-
 gulp.task('copy:img', function () {
   return gulp.src(`${config.src.img}/**/*.{jpg,png,jpeg,svg,gif}`)
     .pipe(newer(config.dest.img))
@@ -23,8 +17,7 @@ gulp.task('copy:img', function () {
 
 gulp.task('copy', [
   'copy:img',
-  'copy:fonts',
-  'copy:vendor'
+  'copy:fonts'
 ]);
 
 gulp.task('copy:watch', function () {
