@@ -25,21 +25,32 @@ function createConfig(env) {
       filename: '[name].js',
       publicPath: 'js/',
     },
-    devtool: env === 'production' ?
-      '#source-map' :
-      '#cheap-module-eval-source-map',
+    devtool: env !== 'production' ? '#cheap-module-eval-source-map' : false,
+    // TODO: if needed
+    optimization: {
+      // splitChunks: {
+      //   cacheGroups: {
+      //     vendor: {
+      //       test: /node_modules/,
+      //       name: "vendor",
+      //       chunks: "initial",
+      //       enforce: true
+      //     }
+      //   }
+      // }
+    },
     plugins: [
       // TODO: if needed
-      // new webpack.ProvidePlugin({
-      //   $: 'jquery',
-      //   jQuery: 'jquery',
-      //   'window.jQuery': 'jquery',
-      // }),
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+      }),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         analyzerPort: 4000,
         openAnalyzer: false,
-      }),
+      })
     ],
     resolve: {
       extensions: ['.js']

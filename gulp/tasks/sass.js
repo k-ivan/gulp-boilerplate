@@ -15,6 +15,7 @@ gulp.task('sass', function () {
     .pipe(_if(!config.production, sourcemaps.init()))
     .pipe(sass({
       // outputStyle: config.production ? 'compressed' : 'expanded', // nested, expanded, compact, compressed
+      outputStyle: 'expanded',
       precision: 5
     }).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: ['last 2 versions'] }))

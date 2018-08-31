@@ -1,10 +1,6 @@
 @import 'vars';
-@import 'mixins';
-@import 'grid';
-@import 'common';
-@import 'buttons';
-@import 'forms';
-@import 'tables';
-@import 'loading';
-@import 'utilities';
-@import 'print';
+@import 'mixins/index';
+@import 'layout/index';
+@import 'components/index';
+@import 'utilities/index';
+// @import 'print';

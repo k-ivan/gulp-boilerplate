@@ -1,6 +1,7 @@
 // Buttons
-$btn-border: 1px solid $color-primary !default;
-$btn-height: 2.37rem !default;
+$btn-border-width: 1px;
+$btn-border: $btn-border-width solid $color-primary !default;
+$btn-height: 2.35rem !default;
 $btn-bg: transparent !default;
 $btn-color: $color-primary !default;
 $btn-hover-bg: $color-primary !default;
@@ -18,12 +19,12 @@ $btn-radius: .15rem !default;
 }
 
 .btn {
+  position: relative;
   display: inline-block;
   height: $btn-height;
-  line-height: 1;
+  line-height: 1.3;
   vertical-align: middle;
   padding: $btn-padding;
-  cursor: pointer;
   font-family: inherit;
   font-size: inherit;
   font-weight: 600;
@@ -35,6 +36,7 @@ $btn-radius: .15rem !default;
   border: $btn-border;
   border-radius: $btn-radius;
   user-select: none;
+  cursor: pointer;
   // outline: 0;
   &:hover {
     color: $btn-hover-color;
@@ -50,50 +52,51 @@ $btn-radius: .15rem !default;
     text-decoration: none;
   }
 
-  &.is-loading {
+  &--link {
+    background-color: transparent;
+    border: transparent;
+    color: $btn-color;
+    &:hover {
+      background-color: transparent;
+      color: darken($btn-color, 10%);
+    }
+    &:active {
+      background-color: transparent;
+      color: darken($btn-color, 10%);
+    }
+  }
+
+  &.has-loading {
     @extend .loading;
     @include btn-loading-color;
     pointer-events: none;
   }
-}
 
-.btn--link {
-  background-color: transparent;
-  border: transparent;
-  color: $btn-color;
-  &:hover {
-    background-color: transparent;
-    color: darken($btn-color, 10%);
+  &--primary {
+    background-color: $color-primary;
+    color: #fff;
+    &:hover {
+      background-color: lighten($color-primary, 5%);
+    }
+    &:active {
+      background-color: darken($color-primary, 5%);
+    }
+
+    &.has-loading {
+      color: transparent;
+      &:hover,
+      &:active {
+        background-color: $color-primary;
+      }
+      @include btn-loading-color(#fff);
+    }
   }
-  &:active {
-    background-color: transparent;
-    color: darken($btn-color, 10%);
+
+  &--block {
+    display: block;
+    width: 100%;
   }
 }
-
-
-// .btn.btn--loading,
-// .btn--clear.btn--loading {
-//   color: transparent;
-//   &:hover,
-//   &:active {
-//     background-color: transparent;
-//   }
-// }
-// .btn--primary.btn--loading {
-//   color: transparent;
-//   &:hover,
-//   &:active {
-//     background-color: $color-primary;
-//   }
-//   @include btn-loading-color(#fff);
-// }
-
-// @keyframes btn-loading {
-//   100% {
-//     transform: rotate(360deg);
-//   }
-// }
 
 .btn-group {
   display: inline-flex;
@@ -110,33 +113,18 @@ $btn-radius: .15rem !default;
       border-bottom-right-radius: $btn-radius;
     }
     + .btn {
-      border-left: 1px solid darken($color-primary, 5%);
-      margin-left: -1px;
+      border-left: $btn-border-width solid darken($color-primary, 5%);
+      margin-left: -$btn-border-width;
     }
   }
 }
 
 .btn[disabled],
 .btn--disabled {
-  cursor: not-allowed;
+  pointer-events: none;
   opacity: .7;
   &:hover {
     background-color: transparent;
     color: $color-primary;
   }
-}
-
-.btn--primary.btn[disabled],
-.btn--primary.btn--disabled {
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: $color-primary;
-    color: #fff;
-  }
-}
-
-.btn--block {
-  display: block;
-  width: 100%;
 }
