@@ -1,7 +1,0 @@
-// @include bgScale default cover
-// @include bgScale(contain)
-@mixin bgScale($size: cover) {
-  background-repeat: no-repeat;
-  background-size: $size;
-  background-position: 50% 50%;
-}
