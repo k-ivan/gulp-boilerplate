@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
+    "ghpages": "gulp ghpages",
     "dev": "gulp build:dev",
     "imagemin": "gulp imagemin",
     "tunnel": "gulp server --tunnel"
