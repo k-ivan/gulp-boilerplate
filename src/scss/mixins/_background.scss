@@ -1,7 +1,7 @@
-// @include bgScale default cover
-// @include bgScale(contain)
-@mixin bgScale($size: cover) {
+// @include bgImage default cover
+// @include bgImage(contain)
+@mixin bgImage($size: cover, $position: center) {
   background-repeat: no-repeat;
   background-size: $size;
-  background-position: 50% 50%;
+  background-position: $position;
 }
