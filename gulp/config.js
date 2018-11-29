@@ -27,7 +27,7 @@ const config = {
     img   : `${destPath}/img`,
     icons : `${destPath}/img`,
     fonts : `${destPath}/fonts`,
-    media : `${srcPath}/media`
+    media : `${destPath}/media`
   },
 
   setEnv (env) {
