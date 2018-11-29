@@ -1,5 +1,5 @@
 import svg4everybody from 'svg4everybody';
-import SayHello from './sayhello';
+import SayHello from './components/sayhello';
 
 svg4everybody();
 

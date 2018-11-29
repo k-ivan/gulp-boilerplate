@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const util = require('gulp-util');
 const config = require('./gulp/config');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function createConfig(env) {
   let webpackConfig;
@@ -10,7 +8,6 @@ function createConfig(env) {
   if (env === undefined) {
     env = process.env.NODE_ENV;
   }
-
 
   webpackConfig = {
     mode: env,
@@ -25,7 +22,7 @@ function createConfig(env) {
       filename: '[name].js',
       publicPath: 'js/',
     },
-    devtool: env !== 'production' ? '#cheap-module-eval-source-map' : false,
+    devtool: env === 'development' ? '#cheap-module-eval-source-map' : false,
     // TODO: if needed
     optimization: {
       // splitChunks: {
@@ -45,11 +42,6 @@ function createConfig(env) {
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
-      }),
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        analyzerPort: 4000,
-        openAnalyzer: false,
       })
     ],
     resolve: {
@@ -66,20 +58,6 @@ function createConfig(env) {
         }],
     },
   };
-
-  // if (isProduction) {
-  //   webpackConfig.plugins.push(
-  //     new webpack.LoaderOptionsPlugin({
-  //       minimize: true,
-  //     }),
-  //     new webpack.optimize.UglifyJsPlugin({
-  //       compress: {
-  //         warnings: false,
-  //       },
-  //     })
-  //   );
-  // }
-
   return webpackConfig;
 }
 
