@@ -12,11 +12,16 @@ function createConfig(env) {
   webpackConfig = {
     mode: env,
     context: path.join(__dirname, config.src.js),
-    entry: {
-      // TODO: if needed
-      // vendor: ['jquery'],
-      app: './app.js',
-    },
+    /**
+     * TODO:
+     * by default, the source files are processed by the galp plugin vinyl-named, inside the task
+     * if you need to use the entry point in the webpack config, you need to uncomment the lines below
+     */
+    // entry: {
+    //   // TODO: if needed
+    //   // vendor: ['jquery'],
+    //   app: './app.js',
+    // },
     output: {
       path: path.join(__dirname, config.dest.js),
       filename: '[name].js',

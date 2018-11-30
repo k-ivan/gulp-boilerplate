@@ -41,12 +41,10 @@ gulp.task('watch', (done) => {
 });
 
 config.logEnv();
-
 gulp.task('build', gulp.series(...buildTasks()));
 gulp.task('dev', gulp.series(...buildTasks()));
 gulp.task('gh', gulp.series('build', 'ghpages'));
 gulp.task('archive', gulp.series('build', 'zip'));
-
 gulp.task('default', gulp.series(
   'dev',
   gulp.parallel(

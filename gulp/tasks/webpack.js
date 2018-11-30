@@ -11,12 +11,5 @@ module.exports = function(gulp, $, config) {
         webpackStream(webpackConfig(config.env))
       )
       .pipe(gulp.dest(config.dest.js))
-      // .on('data', function() {
-      //   if (firstBuildReady) {
-      //     callback();
-      //     if (config.env === 'development') {
-      //     }
-      //   }
-      // });
   }
 }

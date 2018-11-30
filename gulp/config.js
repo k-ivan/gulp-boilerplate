@@ -40,7 +40,9 @@ const config = {
   logEnv () {
     util.log(
       'Environment:',
-      util.colors.white.bgRed(' ' + process.env.NODE_ENV + ' ')
+      (this.env === 'development')
+        ? util.colors.white.bgRed(' ' + process.env.NODE_ENV + ' ')
+        : util.colors.black.bgGreen(' ' + process.env.NODE_ENV + ' ') //bgGreen(' ' + process.env.NODE_ENV + ' ')
     );
   }
 }
