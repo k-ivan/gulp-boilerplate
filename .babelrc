@@ -1,8 +1,12 @@
 {
   "presets": [
-    "@babel/env"
-  ],
-  "plugins": [
-    "@babel/plugin-transform-object-assign"
+    [
+      "@babel/preset-env",
+      // babel-polyfill if need
+      // {
+      //   "useBuiltIns": "usage",
+      //   "corejs": "2"
+      // }
+    ]
   ]
 }

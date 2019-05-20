@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const config = require('./gulp/config');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function createConfig(env) {
   let webpackConfig;
@@ -29,18 +30,18 @@ function createConfig(env) {
     },
     devtool: env === 'development' ? '#cheap-module-eval-source-map' : false,
     // TODO: if needed
-    optimization: {
-      // splitChunks: {
-      //   cacheGroups: {
-      //     vendor: {
-      //       test: /node_modules/,
-      //       name: "vendor",
-      //       chunks: "initial",
-      //       enforce: true
-      //     }
-      //   }
-      // }
-    },
+    // optimization: {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       vendor: {
+    //         test: /node_modules/,
+    //         name: "vendor",
+    //         chunks: "initial",
+    //         enforce: true
+    //       }
+    //     }
+    //   }
+    // },
     plugins: [
       // TODO: if needed
       new webpack.ProvidePlugin({
@@ -63,6 +64,16 @@ function createConfig(env) {
         }],
     },
   };
+
+  if (env === 'production') {
+    webpackConfig.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: path.join(__dirname, `${config.dest.html}/report.html`)
+      })
+    )
+  }
+
   return webpackConfig;
 }
 
