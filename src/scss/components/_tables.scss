@@ -71,3 +71,12 @@ $table-even-bg: #eee !default;
     border-bottom-width: 0;
   }
 }
+
+// Table responsive
+//===
+.tbl-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
