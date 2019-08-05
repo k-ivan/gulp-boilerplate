@@ -37,7 +37,11 @@ gulp.task('watch', (done) => {
   gulp.watch(`${config.src.sass}/**/*.{sass,scss}`, gulp.series('styles'));
   gulp.watch(`${config.src.js}/**/*.js`, gulp.series('webpack'));
   gulp.watch(`${config.src.iconsSvg}/*.svg`, gulp.series('svgsprite'));
-  gulp.watch([`${config.src.fonts}/**/*`, `${config.src.img}/**/*`], gulp.series('copy'));
+  gulp.watch([
+    `${config.src.fonts}/**/*`,
+    `${config.src.img}/**/*`,
+    `${config.src.media}/**/*`
+  ], gulp.series('copy'));
 });
 
 config.logEnv();
