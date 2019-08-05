@@ -26,6 +26,7 @@
     "browser-sync": "^2.26.7",
     "cross-env": "^5.2.0",
     "del": "^5.0.0",
+    "eslint": "^6.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-csso": "^3.0.1",
