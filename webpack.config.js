@@ -69,6 +69,7 @@ function createConfig(env) {
     webpackConfig.plugins.push(
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
+        openAnalyzer: false,
         reportFilename: path.join(__dirname, `${config.dest.html}/report.html`)
       })
     )
