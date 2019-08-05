@@ -7,6 +7,7 @@ const destPath = 'dist';
 const config = {
 
   env: 'development',
+  port: 8080,
   production: production,
 
   src: {

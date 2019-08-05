@@ -17,7 +17,7 @@ module.exports = function(gulp, $, config) {
         `${config.dest.js}/*.js`,
         `${config.dest.img}/**/*`
       ],
-      port: $.util.env.port || 8080,
+      port: $.util.env.port || config.port,
       logLevel: 'info', // 'debug', 'info', 'silent', 'warn'
       logConnections: false,
       logFileChanges: true,
