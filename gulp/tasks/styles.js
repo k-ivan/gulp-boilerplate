@@ -9,7 +9,7 @@ module.exports = function(gulp, $, config) {
         outputStyle: 'expanded',
         precision: 5
       }).on('error', $.sass.logError))
-      .pipe($.autoprefixer({ browsers: ['last 2 versions'] }))
+      .pipe($.autoprefixer())
       .pipe($.if(config.production, $.groupCssMediaQueries()))
       .pipe($.if(config.production, $.csso()))
       .pipe($.if(!config.production, $.sourcemaps.write('./')))
