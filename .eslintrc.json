@@ -19,7 +19,11 @@
     }],
     "indent": [
       "error",
-      2
+      2,
+      {
+        "ignoredNodes": ["TemplateLiteral > *"],
+        "SwitchCase": 1
+      }
     ],
     "linebreak-style": [
       "error",
@@ -27,11 +31,22 @@
     ],
     "quotes": [
       "error",
-      "single"
+      "single",
+      { "allowTemplateLiterals": true }
     ],
     "semi": [
       "error",
       "always"
-    ]
-  }
+    ],
+    "space-infix-ops": 2
+  },
+  "overrides": [
+    {
+      "files": ["src/js/**/*.js"],
+      "parser": "babel-eslint",
+      "parserOptions": {
+        "allowImportExportEverywhere": true
+      }
+    }
+  ]
 }

@@ -1,5 +1,4 @@
 const server = require('browser-sync').create();
-const config = require('../config');
 
 module.exports = function(gulp, $, config) {
   return function () {
@@ -28,5 +27,5 @@ module.exports = function(gulp, $, config) {
       tunnel: $.util.env.tunnel || null
     });
     return server;
-  }
-}
+  };
+};

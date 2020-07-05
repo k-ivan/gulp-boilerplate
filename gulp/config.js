@@ -46,7 +46,7 @@ const config = {
         : util.colors.black.bgGreen(' ' + process.env.NODE_ENV + ' ') //bgGreen(' ' + process.env.NODE_ENV + ' ')
     );
   }
-}
+};
 
 config.setEnv(production ? 'production' : 'development');
 

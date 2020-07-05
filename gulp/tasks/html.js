@@ -13,5 +13,5 @@ module.exports = function(gulp, $, config) {
         end_with_newline: true
       }))
       .pipe(gulp.dest(config.dest.root));
-  }
-}
+  };
+};

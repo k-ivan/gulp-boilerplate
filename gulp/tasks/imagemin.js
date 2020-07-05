@@ -30,5 +30,5 @@ module.exports = function(gulp, $, config) {
         })
       ]))
       .pipe(gulp.dest(config.dest.img));
-  }
-}
+  };
+};

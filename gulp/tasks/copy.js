@@ -11,5 +11,5 @@ module.exports = function(gulp, $, config) {
     })
       .pipe($.newer(config.dest.root))
       .pipe(gulp.dest(config.dest.root));
-  }
-}
+  };
+};

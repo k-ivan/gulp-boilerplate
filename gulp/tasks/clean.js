@@ -1,4 +1,4 @@
-const del    = require('del');
+const del = require('del');
 
 module.exports = function(gulp, $, config) {
   return function clean() {
@@ -7,5 +7,5 @@ module.exports = function(gulp, $, config) {
         if (paths.length)
           $.util.log($.util.colors.green(`${paths} - cleared`));
       });
-  }
-}
+  };
+};

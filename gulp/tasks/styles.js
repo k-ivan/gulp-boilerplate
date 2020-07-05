@@ -14,5 +14,5 @@ module.exports = function(gulp, $, config) {
       .pipe($.if(config.production, $.csso()))
       .pipe($.if(!config.production, $.sourcemaps.write('./')))
       .pipe(gulp.dest(config.dest.css));
-  }
-}
+  };
+};
