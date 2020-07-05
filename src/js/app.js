@@ -8,17 +8,17 @@ class App extends SayHello {
     super();
     // this.init();
   }
-  // init() {
+  // async init() {
   //   const data = await this.getAll();
-  //   console.log(data)
-  //   this.getAll().then(data => console.log(data))
+  //   console.log(data);
+  //   this.getAll().then(data => console.log(data));
   // }
   // getAll() {
   //   return new Promise(resolve => {
   //     setTimeout(() => {
-  //       resolve('hello world')
-  //     }, 100);
-  //   })
+  //       resolve('hello world');
+  //     }, 1000);
+  //   });
   // }
 }
 

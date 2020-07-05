@@ -29,19 +29,18 @@ function createConfig(env) {
       publicPath: 'js/',
     },
     devtool: env === 'development' ? '#cheap-module-eval-source-map' : false,
-    // TODO: if needed
-    // optimization: {
-    //   splitChunks: {
-    //     cacheGroups: {
-    //       vendor: {
-    //         test: /node_modules/,
-    //         name: "vendor",
-    //         chunks: "initial",
-    //         enforce: true
-    //       }
-    //     }
-    //   }
-    // },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor',
+            chunks: 'initial',
+            enforce: true
+          }
+        }
+      }
+    },
     plugins: [
       // TODO: if needed
       new webpack.ProvidePlugin({
@@ -72,7 +71,7 @@ function createConfig(env) {
         openAnalyzer: false,
         reportFilename: path.join(__dirname, `${config.dest.html}/report.html`)
       })
-    )
+    );
   }
 
   return webpackConfig;

@@ -2,11 +2,12 @@
   "presets": [
     [
       "@babel/preset-env",
-      // babel-polyfill if need
-      // {
-      //   "useBuiltIns": "usage",
-      //   "corejs": "2"
-      // }
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "loose": true,
+        "modules": false
+      }
     ]
   ]
 }
